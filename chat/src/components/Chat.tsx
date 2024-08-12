@@ -50,7 +50,8 @@ export const Chat:React.FC = () => {
                             <Flex
                                 className={item.user_id === CURRENT_USER ? "my" : ""}
                                 gap={10}
-                                key={item.id}>
+                                key={item.id}
+                            >
                                 {
                                     item.user_id === CURRENT_USER ?
                                         <></> :
@@ -65,7 +66,8 @@ export const Chat:React.FC = () => {
                                     user_id={item.user_id}
                                     id={item.id}
                                     status={item.status}
-                                    date={item.date}/>
+                                    date={item.date}
+                                />
                             </Flex>
                         ))
                     }

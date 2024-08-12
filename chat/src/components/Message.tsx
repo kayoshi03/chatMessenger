@@ -39,9 +39,10 @@ export const Message:React.FC<IMessageType> = ({user_id, message, status, date, 
                     <MessageHeader id={user_id}/>
                     {
                         files !== null ?
-                            files?.map((item, index) => (
-                                <Image key={index}  src={item} alt=""/>
-                            )) : <></>
+                            files?.map((item) => (
+                                <Image key={item} src={item} alt=""/>
+                            ))
+                        : <></>
                     }
                     <Typography.Paragraph
                         editable={
@@ -58,9 +59,9 @@ export const Message:React.FC<IMessageType> = ({user_id, message, status, date, 
                             user_id === CURRENT_USER ?
                                 {
                                     onCopy: () => deleteMessage(id),
-                                    icon: [<DeleteOutlined style={{
+                                    icon: <DeleteOutlined style={{
                                         color: "#fff"
-                                    }}/>],
+                                    }}/>,
                                     tooltips: "Удалить"
                                 } : false
                         }
