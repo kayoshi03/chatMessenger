@@ -24,7 +24,7 @@ export const Footer:React.FC = () => {
     }
     useEffect(() => {
         update()
-    }, [addMessage, setMessage]);
+    }, [addMessage, setMessage, update]);
     const sendMessage = () => {
         const newMessage:IMessageType = {
             id: Date.now(),

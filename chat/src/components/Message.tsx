@@ -40,7 +40,7 @@ export const Message:React.FC<IMessageType> = ({user_id, message, status, date, 
                     {
                         files !== null ?
                             files?.map((item, index) => (
-                                <Image key={index}  src={item}/>
+                                <Image key={index}  src={item} alt=""/>
                             )) : <></>
                     }
                     <Typography.Paragraph
