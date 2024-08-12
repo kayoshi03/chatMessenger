@@ -1,0 +1,51 @@
+* {
+    font-family: "Jost", sans-serif !important;
+}
+
+.my {
+    flex-direction: row-reverse;
+}
+.my{
+    .ant-card {
+        border-radius: 8px 0 8px 8px;
+    }
+    .ant-card-body::before  {
+        left: calc(100% - 1px);
+        display: block;
+        content: "";
+        width: 10px;
+        position: absolute;
+        height: 10px;
+        top: 0;
+        background-image: url("../assets/top-vector-tip.svg");
+    }
+}
+.ant-card-body::before  {
+    left: -8px;
+    display: block;
+    content: "";
+    width: 10px;
+    position: absolute;
+    height: 10px;
+    top: 0;
+    background-image: url("../assets/top-left-vector-tip.svg");
+    background-repeat: no-repeat;
+}
+.ant-card-body {
+    padding: 4px 8px !important;
+}
+.ant-card-actions>li:not(:last-child) {
+    border: none !important;
+}
+.ant-card {
+    max-width: 315px;
+    width: max-content;
+    border-radius: 0 8px 8px 8px !important;
+}
+
+.ant-card-bordered {
+    border: none !important;
+}
+.ant-drawer-mask {
+    background: none !important;
+}
