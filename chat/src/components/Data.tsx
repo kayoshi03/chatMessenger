@@ -1,6 +1,6 @@
 import React from "react";
 import {Space, Typography} from "antd";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 
 export const Data:React.FC = () => {
     const data = dayjs()

@@ -1,6 +1,15 @@
 import { create } from 'zustand'
+import {IMessageType} from "@/type/message.type";
 
-export const useStore = create((set) => ({
+interface StoreState {
+    message: IMessageType[];
+    addMessage: (message: IMessageType) => void;
+    setMessage: (message: IMessageType[]) => void;
+    updateMessage: (id: number, text: string) => void;
+    deleteMessage: (id: number) => void;
+}
+
+export const useStore = create<StoreState>((set) => ({
     message: [],
     addMessage: (message) =>
         set((state) => {

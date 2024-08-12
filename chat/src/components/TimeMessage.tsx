@@ -3,7 +3,11 @@ import {Flex, Typography} from "antd";
 import {CURRENT_USER} from "@/constant/const";
 import dayjs from "dayjs";
 
-export const TimeMessage:React.FC = ({id, data}:number) => {
+interface ITimeMessage {
+    id: number,
+    data: number
+}
+export const TimeMessage:React.FC<ITimeMessage> = ({id, data}) => {
     const convertData = dayjs(data).format("hh:mm A")
     return (
         <Typography

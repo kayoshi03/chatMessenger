@@ -2,7 +2,11 @@ import React from "react";
 import {AntdRegistry} from "@ant-design/nextjs-registry";
 import {ConfigProvider} from "antd";
 
-export const ThemeProvider:React.FC = ({children}) => {
+interface ThemeProviderProps {
+    children: React.ReactNode;
+}
+
+export const ThemeProvider:React.FC<ThemeProviderProps> = ({children}) => {
     return (
         <AntdRegistry>
             <ConfigProvider

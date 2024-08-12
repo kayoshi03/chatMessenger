@@ -11,7 +11,7 @@ import {useStore} from "@/zustand/store";
 export const Message:React.FC<IMessageType> = ({user_id, message, status, date, id, files}) => {
     const [state, setState] = useState(message)
     const {deleteMessage, updateMessage} = useStore()
-    const update = (value) => {
+    const update = (value:string) => {
         setState(value)
         updateMessage(id,value)
     }

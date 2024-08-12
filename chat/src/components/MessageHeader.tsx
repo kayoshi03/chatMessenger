@@ -2,8 +2,10 @@ import {CURRENT_USER} from "@/constant/const";
 import {Flex, Typography} from "antd";
 import {User} from "@/data/user.data";
 import React from "react";
-
-export const MessageHeader:React.FC = ({id}:number) => {
+interface IHeader{
+     id: number
+}
+export const MessageHeader:React.FC<IHeader> = ({id}) => {
     return (
         <React.Fragment>
             {

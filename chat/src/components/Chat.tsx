@@ -9,6 +9,7 @@ import {AvatarProfile} from "@/components/AvatarProfile";
 import {CURRENT_USER} from "@/constant/const";
 import {Message} from "@/components/Message";
 import {useStore} from "@/zustand/store";
+import {IMessageType} from "@/type/message.type";
 
 export const Chat:React.FC = () => {
     const [open, setOpen] = useState(true)
@@ -56,7 +57,6 @@ export const Chat:React.FC = () => {
                                     item.user_id === CURRENT_USER ?
                                         <></> :
                                         <AvatarProfile
-                                            status={item.status}
                                             id={item.user_id}
                                         />
                                 }

@@ -1,8 +1,11 @@
 import {Avatar, Button, Flex, Typography} from "antd";
 import {EllipsisOutlined} from "@ant-design/icons";
 import {User} from "@/data/user.data";
-
-export const Header = ({close}:void) => {
+import React from "react";
+interface HeaderProps {
+    close: () => void;
+}
+export const Header:React.FC<HeaderProps> = ({close}) => {
     return(
         <Flex gap={"5px"} align="center" justify="space-between">
             <Avatar.Group>

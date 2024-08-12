@@ -2,7 +2,10 @@ import React from "react";
 import {CheckOutlined, ClockCircleOutlined} from "@ant-design/icons";
 import {IMessageType} from "@/type/message.type";
 
-export const StatusMessage:React.FC = ({status}:IMessageType) => {
+interface StatusMessageProps {
+    status: "sent" | "read" | "expect";
+}
+export const StatusMessage:React.FC<StatusMessageProps> = ({status}) => {
     return(
         <>
             {
