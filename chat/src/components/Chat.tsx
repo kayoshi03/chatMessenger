@@ -1,7 +1,7 @@
 'use client'
 import React, {useState} from "react";
 import {WechatOutlined} from "@ant-design/icons";
-import {Drawer, Flex, FloatButton, Input} from "antd";
+import {Drawer, Flex, FloatButton} from "antd";
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
 import {Data} from "@/components/Data";

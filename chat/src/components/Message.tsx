@@ -13,7 +13,7 @@ const textColorDefault:React.CSSProperties = {
     marginBottom: "10px"
 }
 
-export const Message:React.FC<IMessageType> = ({user_id, message, status, date, id, files}) => {
+export const Message:React.FC<IMessageType> = ({user_id, message, date, files}) => {
     return (
         <Card
             styles={defaultMessage}
