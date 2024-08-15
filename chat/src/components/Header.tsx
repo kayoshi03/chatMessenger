@@ -5,6 +5,22 @@ import React from "react";
 interface HeaderProps {
     close: () => void;
 }
+const backColor:React.CSSProperties = {
+    backgroundColor: "#0ddd0d"
+}
+const typographyTitle:React.CSSProperties = {
+    margin:"0",
+    fontSize: "14px",
+    fontWeight: "600",
+    lineHeight: "18px",
+    color: "#2C2C2E"
+}
+const typographyParagraph:React.CSSProperties = {
+    margin: "0",
+    textAlign: "center",
+    fontSize: "12px",
+    color: "#666668"
+}
 export const Header:React.FC<HeaderProps> = ({close}) => {
     return(
         <Flex gap={"5px"} align="center" justify="space-between">
@@ -13,50 +29,22 @@ export const Header:React.FC<HeaderProps> = ({close}) => {
                     User.slice(0, 4).map((item) => (
                         <Avatar
                             size="small"
-                            style={{
-                                backgroundColor: "#0ddd0d"
-                            }}
+                            style={backColor}
                             key={item.id}
                             src={item.url}
                         />
                     ))
                 }
-                {/*<Avatar size="small" style={{*/}
-                {/*    backgroundColor: "#0ddd0d"*/}
-                {/*}}>*/}
-                {/*    E*/}
-                {/*</Avatar>*/}
-                {/*<Avatar size="small" style={{*/}
-                {/*    backgroundColor: "#dd0d0d"*/}
-                {/*}}>*/}
-                {/*    V*/}
-                {/*</Avatar>*/}
-                {/*<Avatar size="small" style={{*/}
-                {/*    backgroundColor: "#0b57ad"*/}
-                {/*}}>*/}
-                {/*    A*/}
-                {/*</Avatar>*/}
             </Avatar.Group>
             <Flex vertical align="center">
                 <Typography.Title
-                    style={{
-                        margin:"0",
-                        fontSize: "14px",
-                        fontWeight: "600",
-                        lineHeight: "18px",
-                        color: "#2C2C2E"
-                    }}
+                    style={typographyTitle}
                     level={5}
                 >
                     Name chat
                 </Typography.Title>
                 <Typography.Paragraph
-                    style={{
-                        margin:"0",
-                        textAlign: "center",
-                        fontSize: "12px",
-                        color: "#666668"
-                    }}
+                    style={typographyParagraph}
                     type="secondary"
                 >
                     last seen 45 minutes ago

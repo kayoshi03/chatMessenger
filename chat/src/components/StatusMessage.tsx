@@ -5,15 +5,16 @@ import {IMessageType} from "@/type/message.type";
 interface StatusMessageProps {
     status: "sent" | "read" | "expect";
 }
+const color:React.CSSProperties = {
+    color: "white"
+}
 export const StatusMessage:React.FC<StatusMessageProps> = ({status}) => {
     return(
         <>
             {
                 status === "read" ?
                     <CheckOutlined
-                        style={{
-                            color: "white"
-                        }}
+                        style={color}
                     /> :
                         status === "sent" ?
                             <CheckOutlined /> :
@@ -21,7 +22,6 @@ export const StatusMessage:React.FC<StatusMessageProps> = ({status}) => {
                                     <ClockCircleOutlined /> :
                                         <></>
             }
-
         </>
     )
 }

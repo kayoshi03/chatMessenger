@@ -1,18 +1,23 @@
 import {Button, Flex, Image, Input, Space, Upload, UploadFile} from "antd";
 import {PlusCircleOutlined, SendOutlined, SmileOutlined} from "@ant-design/icons";
-import React, {useEffect, useState} from "react";
-import {useStore} from "@/zustand/store";
+import React, {useState} from "react";
+import useStore from "@/hooks/useStore";
 import {IMessageType} from "@/type/message.type";
 import {CURRENT_USER} from "@/constant/const";
 import {RcFile} from "antd/es/upload";
+import {useMessageStore} from "@/zustand/store";
 
-
-
+const maxWidth:React.CSSProperties = {
+    width: "100%"
+}
+const active:React.CSSProperties = {
+    color: "#007AFF"
+}
 
 export const Footer:React.FC = () => {
     const [imageUrl, setImageUrl] = useState<string[] | null>(null);
     const [value, setValue] = useState("")
-    const {addMessage,setMessage} = useStore()
+    const state = useStore(useMessageStore, (state) => state)
 
     const fileList: UploadFile<any>[] = imageUrl
         ? imageUrl.map((url, index) => ({
@@ -23,17 +28,6 @@ export const Footer:React.FC = () => {
         }))
         : [];
 
-    const update = () => {
-        if (typeof window !== 'undefined') {
-            const storedMessages = localStorage.getItem('chatMessages');
-            if (storedMessages) {
-                setMessage(JSON.parse(storedMessages));
-            }
-        }
-    }
-    useEffect(() => {
-        update()
-    }, [addMessage, setMessage]);
     const sendMessage = () => {
         const newMessage:IMessageType = {
             id: Date.now(),
@@ -51,10 +45,8 @@ export const Footer:React.FC = () => {
             files: null,
             date: Date.now()
         }
-        addMessage(newMessage)
-        update()
-        addMessage(botMessage)
-        update()
+        state?.addMessage(newMessage)
+        state?.addMessage(botMessage)
         setImageUrl(null)
         setValue("")
     }
@@ -77,24 +69,21 @@ export const Footer:React.FC = () => {
                     }
                 </Flex>
                 <Space.Compact
-                    style={{
-                        width: "100%"
-                    }}
+                    style={maxWidth}
                 >
-
                     <Button type="text">
                         <SmileOutlined />
                     </Button>
-                    <Input onPressEnter={
-                        value.length !== 0 ?
-                            sendMessage : undefined
-                    }
-                           value={value}
-                           onChange={(e) => setValue(e.target.value)}
-                           placeholder="Start typing..."
-                           variant="borderless" style={{
-                        width: "100%"
-                    }}>
+                    <Input
+                        onPressEnter={
+                            value.length !== 0 ? sendMessage : undefined
+                        }
+                       value={value}
+                       onChange={(e) => setValue(e.target.value)}
+                       placeholder="Start typing..."
+                       variant="borderless"
+                        style={maxWidth}
+                    >
                     </Input>
                     <Upload
                         fileList={fileList}
@@ -116,11 +105,9 @@ export const Footer:React.FC = () => {
                         type="text"
                     >
                         <SendOutlined style={
-                            value.length !== 0 || imageUrl !== null ?
-                                {
-                                    color: "blue"
-                                }:{}
-                        }/>
+                            value.length !== 0 || imageUrl !== null ? active : {}
+                        }
+                        />
                     </Button>
                 </Space.Compact>
             </Flex>
